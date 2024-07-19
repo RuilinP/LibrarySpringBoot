@@ -1,6 +1,6 @@
-package com.library.demo;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+package com.library.demo.Controller;
+import com.library.demo.Repository.BookRepository;
+import com.library.demo.Entity.Book;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
