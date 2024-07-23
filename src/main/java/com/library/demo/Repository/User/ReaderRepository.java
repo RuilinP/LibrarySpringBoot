@@ -10,6 +10,6 @@ public interface ReaderRepository extends UserRepository{
     @Query("SELECT r FROM Reader r")
     List<User> findAll();
 
-    @Query("SELECT a FROM Reader a WHERE a.Id =:id")
+    @Query("SELECT a FROM Reader a WHERE a.user_id =:id")
     Optional<User> findById(Integer id);
 }

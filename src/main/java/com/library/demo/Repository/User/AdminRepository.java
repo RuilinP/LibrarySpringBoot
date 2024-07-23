@@ -13,6 +13,6 @@ public interface AdminRepository extends UserRepository{
     @Query("SELECT a FROM Admin a")
     List<User> findAll();
 
-    @Query("SELECT a FROM Admin a WHERE a.Id =:id")
+    @Query("SELECT a FROM Admin a WHERE a.user_id =:id")
     Optional<User> findById(Integer id);
 }

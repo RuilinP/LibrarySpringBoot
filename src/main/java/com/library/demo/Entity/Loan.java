@@ -18,26 +18,36 @@ public class Loan {
             strategy = GenerationType.SEQUENCE,
             generator = "loan_id_sequence"
     )
-    private Integer id;
+    private Integer loan_id;
+    @ManyToOne
+    @JoinColumn(name = "reader_id",referencedColumnName = "user_id", nullable = false)
     private Reader reader;
+    @ManyToOne
+    @JoinColumn(name = "admin_id",referencedColumnName = "user_id", nullable = false)
     private Admin admin;
+    @ManyToOne
+    @JoinColumn(name = "book_id", nullable = false)
     private Book book;
     private Date startDate;
+    private Boolean returned;
 
-    public Loan(Integer id, Reader reader, Admin admin, Book book, Date startDate) {
-        this.id = id;
+    public Loan(Reader reader, Admin admin, Book book, Date startDate, Boolean returned) {
         this.reader = reader;
         this.admin = admin;
         this.book = book;
         this.startDate = startDate;
+        this.returned = returned;
+    }
+
+    public Loan() {
     }
 
     public Integer getId() {
-        return id;
+        return loan_id;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.loan_id = id;
     }
 
     public Reader getReader() {
@@ -70,5 +80,13 @@ public class Loan {
 
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
+    }
+
+    public Boolean getReturned() {
+        return returned;
+    }
+
+    public void setReturned(Boolean returned) {
+        this.returned = returned;
     }
 }

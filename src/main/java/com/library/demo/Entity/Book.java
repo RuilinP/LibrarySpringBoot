@@ -16,7 +16,7 @@ public class Book {
             strategy = GenerationType.SEQUENCE,
             generator = "book_id_sequence"
     )
-    private Integer id;
+    private Integer book_id;
     private String title;
     private String isbn;
     private Integer year;
@@ -27,7 +27,7 @@ public class Book {
                 String isbn,
                 Integer year,
                 boolean status) {
-        this.id = id;
+        this.book_id = id;
         this.title = title;
         this.isbn = isbn;
         this.year = year;
@@ -38,11 +38,11 @@ public class Book {
     }
 
     public Integer getId() {
-        return id;
+        return book_id;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.book_id = id;
     }
 
     public String getTitle() {
@@ -82,11 +82,11 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return status == book.status && Objects.equals(id, book.id) && Objects.equals(title, book.title) && Objects.equals(isbn, book.isbn) && Objects.equals(year, book.year);
+        return status == book.status && Objects.equals(book_id, book.book_id) && Objects.equals(title, book.title) && Objects.equals(isbn, book.isbn) && Objects.equals(year, book.year);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, isbn, year, status);
+        return Objects.hash(book_id, title, isbn, year, status);
     }
 }

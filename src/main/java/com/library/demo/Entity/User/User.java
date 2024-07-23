@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public abstract class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer Id;
+    private Integer user_id;
     private String username;
     private String passwd;
     private String email;
@@ -23,11 +23,11 @@ public abstract class User {
     }
 
     public Integer getId() {
-        return Id;
+        return user_id;
     }
 
     public void setId(Integer id) {
-        Id = id;
+        user_id = id;
     }
 
     public String getUsername() {
