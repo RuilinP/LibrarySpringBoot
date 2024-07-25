@@ -1,4 +1,6 @@
 package com.library.demo.Controller;
+import com.library.demo.Entity.Author;
+import com.library.demo.Repository.AuthorRepository;
 import com.library.demo.Repository.BookRepository;
 import com.library.demo.Entity.Book;
 import org.springframework.web.bind.annotation.*;
@@ -10,9 +12,11 @@ import java.util.Optional;
 @RequestMapping("/books")
 public class BookController {
     private final BookRepository bookRepository;
+    private final AuthorRepository authorRepository;
 
-    public BookController(BookRepository bookRepository) {
+    public BookController(BookRepository bookRepository, AuthorRepository authorRepository) {
         this.bookRepository = bookRepository;
+        this.authorRepository = authorRepository;
     }
 
     @GetMapping
@@ -28,6 +32,11 @@ public class BookController {
         } else {
             return new Book();
         }
+    }
+
+    @GetMapping("{bookId}/authors")
+    public List<Author> getAuthorsByBook(@PathVariable("bookId") Integer book_id){
+        return authorRepository.findAuthorsByBookId(book_id);
     }
 
 

@@ -3,6 +3,7 @@ package com.library.demo.Entity;
 import jakarta.persistence.*;
 
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Book {
@@ -21,6 +22,9 @@ public class Book {
     private String isbn;
     private Integer year;
     private boolean status;
+
+    @ManyToMany(mappedBy = "writtenBooks")
+    Set<Author> byAuthors;
 
     public Book(Integer id,
                 String title,
