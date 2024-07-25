@@ -48,7 +48,7 @@ public class AdminController {
     }
 
     @GetMapping("{userId}")
-    public User getUser(@PathVariable("userId") Integer id){
+    public User getAdmin(@PathVariable("userId") Integer id){
         Optional nadmin = adminRepository.findById(id);
         if (nadmin.isPresent()){
             return (Admin) nadmin.get();
@@ -56,6 +56,12 @@ public class AdminController {
             return new Admin();
         }
     }
+
+
+//    @PutMapping("{admin_id}")
+//    public List<User> updateAdmin(@RequestBody AdminController.NewAdminRequest request), @PathVariable{
+//
+//    }
 
 
 

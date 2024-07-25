@@ -39,13 +39,15 @@ public class BookController {
 
 
     @PostMapping
-    public void addBooks(@RequestBody NewBookRequest request){
+    public List<Book> addBooks(@RequestBody NewBookRequest request){
         Book newbook = new Book();
         newbook.setTitle(request.title());
         newbook.setIsbn(request.isbn());
         newbook.setYear(request.year());
         newbook.setStatus(false);
         bookRepository.save(newbook);
+
+        return bookRepository.findAll();
     }
 
     @DeleteMapping("{bookId}")

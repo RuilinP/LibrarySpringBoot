@@ -59,6 +59,7 @@ public class LoanController {
         Optional nadmin = adminRepository.findById(request.adminId());
         if (nbook.isPresent() && nreader.isPresent() && nadmin.isPresent()){
             Book book = (Book) nbook.get();
+            book.setStatus(true);
             Reader reader = (Reader) nreader.get();
             Admin admin = (Admin) nadmin.get();
             Loan loan = new Loan(reader,admin,book, new Date(), false);
@@ -72,6 +73,9 @@ public class LoanController {
         Optional nloan = loanRepository.findById(id);
         if (nloan.isPresent()){
             Loan loan = (Loan) nloan.get();
+            Optional nbook = bookRepository.findById(loan.getBook().getId());
+            Book book = (Book) nbook.get();
+            book.setStatus(false);
             loan.setReturned(true);
             loanRepository.save(loan);
         }
