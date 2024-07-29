@@ -26,6 +26,9 @@ public class Book {
     @ManyToMany(mappedBy = "writtenBooks")
     Set<Author> byAuthors;
 
+    @ManyToMany
+    Set<Genre> belongingGenres;
+
     public Book(Integer id,
                 String title,
                 String isbn,
