@@ -5,5 +5,6 @@
 ![20240725_03h27m32s_grim](https://github.com/user-attachments/assets/2d6ff6a7-05e2-4763-9637-d5f3c3b3ce02)
 ![20240725_03h27m49s_grim](https://github.com/user-attachments/assets/4dd126f7-eea4-4a12-a80c-7170db1dea6d)
 ![20240725_03h26m52s_grim](https://github.com/user-attachments/assets/62e1e9b0-b930-4408-be5b-39bd3979e069)
+![20240729_05h23m36s_grim](https://github.com/user-attachments/assets/24fa0f54-af91-4b50-90dd-0685833fa5f1)
 
 A rather simple Springboot program simulating the management of book loan. Abstract class User has Reader and Admin, Loan has ManyToOne relationships to Admin, Reader, and Book
